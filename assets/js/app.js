@@ -20,11 +20,13 @@ function getDirections() {
     .then(function(response){
         console.log(response);
     });
+    getCurrentWeather();
 }
 
 // function to get the current weather
-function getCurrentWeather(city) {
-    var cityInput = city || $('#cityInput').val().trim();
+function getCurrentWeather() {
+    var cityInput = $('#cityInput').val().trim();
+    console.log(cityInput);
 
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput + "&appid=" + APIKey;
 
@@ -36,6 +38,7 @@ function getCurrentWeather(city) {
 
         .then(function (weatherData) {
 
+            console.log(weatherData);
             // converting temperatures from Kelvin to Fahrenheit 
             var farenTemp = Math.floor((weatherData.main.temp - 273.15) * 1.8 + 32);
             var feelsLike = Math.floor((weatherData.main.feels_like - 273.15) * 1.8 + 32);
@@ -95,6 +98,7 @@ function getCurrentWeather(city) {
 
 
 };
+
 
 
 
