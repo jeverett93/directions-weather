@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,10 +11,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
-    
+
 </head>
+
 <body>
 
+    <form>
+        <div class="uk-margin">
+            <button type="submit" class="uk-button uk-button-default" id="submitBtn">Submit</button>
+            <input class="uk-input uk-form-width-medium" type="address" id="inputStart" placeholder="Enter Start Address">
+            <input class="uk-input uk-form-width-medium" type="address" id="inputDestination" placeholder="Enter Destination">
+        </div>
+    </form>
 
 
 
@@ -28,12 +37,13 @@
 
 
 
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgOE3QM2wQZZgOrdOyhBuX_GF-bgZGhU4&callback=initMap"async defer></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgOE3QM2wQZZgOrdOyhBuX_GF-bgZGhU4&callback=initMap"async defer></script>
 
     <script src="assets/js/app.js"></script>
-    
+
 </body>
+
 </html>
