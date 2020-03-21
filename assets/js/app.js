@@ -1,11 +1,11 @@
-var userStart = $("#inputStart").val().trim();
-var userEnd = $("#inputDestination").val().trim();
+var userStart;
+var userEnd;
 var submitBtn = $("#submitBtn");
 var directions = $("#directions-info");
 var currentWeather = $("#current-weather");
 // taste dive api information
 var apiKey1 = "AIzaSyBan-c0mRECIQzo4yd6oGeBeosVcJNFaPw"
-var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/directions/json?origin=" + userStart + "&destination=" + userEnd + "&key=" + apiKey1
+
 // weather variables
 //moment
 var momentTime = moment().format("MMMM Do YYYY");
@@ -15,6 +15,12 @@ var APIKey = "e885fd3db621744dfef49f4c1e174dc6";
 
 
 function getDirections() {
+
+    var userStart = $("#inputStart").val().trim();
+    var userEnd = $("#inputDestination").val().trim();
+
+    var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/directions/json?origin=" + userStart + "&destination=" + userEnd + "&key=" + apiKey1
+
     $.ajax({
         url: queryURL,
         method: "GET",
@@ -22,6 +28,25 @@ function getDirections() {
     
     .then(function(response){
         console.log(response);
+
+        $('<h3>').text("Distance: " + response.routes[0].legs[0].distance.text).appendTo(directions)
+        $('<h3>').text("Duration: " + response.routes[0].legs[0].duration.text).appendTo(directions)
+
+        for(i = 0; i<response.routes[0].legs[0].steps.length; i++){
+
+            var newDirection = $("<p>");
+            var directionDistance = response.routes[0].legs[0].steps[i].distance.text;
+            // var directionDuration = response.routes[0].legs[0].steps[i].duration.text;
+            // var directionInstruction = response.routes[0].legs[0].steps[i].html_instructions;
+
+            newDirection.text(directionDistance).appendTo(directions);
+            newDirection.text(directionDuration).appendTo(directions);
+            newDirection.text(directionInstruction).appendTo(directions);
+
+            
+            
+
+        }
     });
     getCurrentWeather();
 }
@@ -31,7 +56,11 @@ function getCurrentWeather() {
     // var destinatonInput = $('#cityInput').val().trim();
     console.log(userEnd);
 
+    var userEnd = $("#inputDestination").val().trim();
+
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + userEnd + "&appid=" + APIKey;
+
+    // var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=Nashville&appid=" + APIKey;
 
     // Running AJAX call to the OpenWeatherMap API
     $.ajax({
@@ -110,8 +139,7 @@ $(document).ready(function(){
 submitBtn.on("click", function(event){
     event.preventDefault();
     getDirections();
-    console.log(userStart);
-    console.log(userEnd);
+    // getCurrentWeather();
     
 });
 
