@@ -42,7 +42,7 @@ function getDirections() {
             
             $("<p>").text(directionDistance).appendTo(directions);
             $("<p>").text(directionDuration).appendTo(directions);
-            $("<p>").text(directionInstruction).appendTo(directions);
+            $("<p>").html(directionInstruction).appendTo(directions);
 
         
             
