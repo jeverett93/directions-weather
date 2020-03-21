@@ -34,16 +34,17 @@ function getDirections() {
 
         for(i = 0; i<response.routes[0].legs[0].steps.length; i++){
 
-            var newDirection = $("<p>");
+            // var newDirection = $("<p>");
             var directionDistance = response.routes[0].legs[0].steps[i].distance.text;
-            // var directionDuration = response.routes[0].legs[0].steps[i].duration.text;
-            // var directionInstruction = response.routes[0].legs[0].steps[i].html_instructions;
-
-            newDirection.text(directionDistance).appendTo(directions);
-            newDirection.text(directionDuration).appendTo(directions);
-            newDirection.text(directionInstruction).appendTo(directions);
+            var directionDuration = response.routes[0].legs[0].steps[i].duration.text;
+            var directionInstruction = response.routes[0].legs[0].steps[i].html_instructions;
 
             
+            $("<p>").text(directionDistance).appendTo(directions);
+            $("<p>").text(directionDuration).appendTo(directions);
+            $("<p>").text(directionInstruction).appendTo(directions);
+
+        
             
 
         }
