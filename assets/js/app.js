@@ -1,6 +1,8 @@
-var userStart = $("#inputStart").val().trim()
-var userEnd = $("#inputDestination").val().trim()
-var submitBtn = $("#submitBtn")
+var userStart = $("#inputStart").val().trim();
+var userEnd = $("#inputDestination").val().trim();
+var submitBtn = $("#submitBtn");
+var directions = $("#directions-info");
+var currentWeather = $("#current-weather");
 // taste dive api information
 var apiKey1 = "AIzaSyDgOE3QM2wQZZgOrdOyhBuX_GF-bgZGhU4"
 var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/directions/json?origin=" + userStart + "&destination=" + userEnd + "&key=" + apiKey1
@@ -25,10 +27,10 @@ function getDirections() {
 
 // function to get the current weather
 function getCurrentWeather() {
-    var cityInput = $('#cityInput').val().trim();
-    console.log(cityInput);
+    // var destinatonInput = $('#cityInput').val().trim();
+    console.log(userEnd);
 
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput + "&appid=" + APIKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + userEnd + "&appid=" + APIKey;
 
     // Running AJAX call to the OpenWeatherMap API
     $.ajax({
