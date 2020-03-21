@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Directions Mania</title>
+=======
+    <title>Where You Going My Person?</title>
+>>>>>>> b49dc082bc2b6e883ee66f1fba19c3ca7cffd08f
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/css/uikit.min.css" />
 
@@ -16,13 +20,53 @@
 
 <body>
 
-    <form>
+    <!-- <form>
         <div class="uk-margin">
             <button type="submit" class="uk-button uk-button-default" id="submitBtn">Submit</button>
             <input class="uk-input uk-form-width-medium" type="address" id="inputStart" placeholder="Enter Start Address">
             <input class="uk-input uk-form-width-medium" type="address" id="inputDestination" placeholder="Enter Destination">
+            <input class="uk-input uk-form-width-medium" type="city" id="cityInput" placeholder="Enter Destination City">
         </div>
+        
+    </form> -->
+
+    <!-- Origin Inputs -->
+    <form>
+    
+        <div class="uk-margin">
+            <input class="uk-input uk-form-width-medium" id="inputStart" type="text" placeholder="Origin City">
+        </div>
+    
+        <div class="uk-margin">
+            <input class="uk-input uk-form-width-small" type="text" placeholder="Origin State">
+        </div>
+
     </form>
+
+    <!-- Destination Inputs and Submit Button -->
+    <form>
+    
+        <div class="uk-margin">
+            <input class="uk-input uk-form-width-medium" id="inputDestination" type="text" placeholder="Destination City">
+        </div>
+    
+        <div class="uk-margin">
+            <input class="uk-input uk-form-width-small" type="text" placeholder="Destination State">
+        </div>
+
+        <button type="submit" class="uk-button uk-button-default" id="submitBtn">Submit</button>
+
+    </form>
+
+    <!-- Where directions will go -->
+    <div id="directions-info">
+
+    </div>
+
+    <!-- Where weather will go -->
+    <div id="current-weather">
+
+    </div>
 
 
 
