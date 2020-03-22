@@ -33,6 +33,8 @@ function getDirections() {
     .then(function(response){
         console.log(response);
 
+        directions.empty();
+
         $('<h3>').text("Distance: " + response.routes[0].legs[0].distance.text).appendTo(directions)
         $('<h3>').text("Duration: " + response.routes[0].legs[0].duration.text).appendTo(directions)
 
@@ -44,6 +46,7 @@ function getDirections() {
             var directionInstruction = response.routes[0].legs[0].steps[i].html_instructions;
 
             
+
             $("<p>").text(directionDistance).appendTo(directions);
             $("<p>").text(directionDuration).appendTo(directions);
             $("<p>").html(directionInstruction).appendTo(directions);
