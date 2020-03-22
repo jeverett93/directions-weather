@@ -144,7 +144,11 @@ $(document).ready(function(){
 submitBtn.on("click", function(event){
     event.preventDefault();
     getDirections();
-    // getCurrentWeather();
+    $("#inputStart").val("");
+    $("#startState").val("");
+    $("#inputDestination").val("");
+    $("#endState").val("");
+  
     
 });
 
