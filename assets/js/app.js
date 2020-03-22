@@ -1,5 +1,7 @@
 var userStart;
 var userEnd;
+var startState;
+var endState;
 var submitBtn = $("#submitBtn");
 var directions = $("#directions-info");
 var currentWeather = $("#current-weather");
@@ -18,8 +20,10 @@ function getDirections() {
 
     var userStart = $("#inputStart").val().trim();
     var userEnd = $("#inputDestination").val().trim();
+    var startState = $("#startState").val().trim();
+    var endState = $("#endState").val().trim();
 
-    var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/directions/json?origin=" + userStart + "&destination=" + userEnd + "&key=" + apiKey1
+    var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/directions/json?origin=" + userStart + "," + startState + "&destination=" + userEnd + "," + endState + "&key=" + apiKey1
 
     $.ajax({
         url: queryURL,
