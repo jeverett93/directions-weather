@@ -157,22 +157,23 @@ function getCurrentWeather() {
             })
                 // Getting UV index and color code for index
                 .then(function (moreData) {
-                    $('<h3 id = ' + city + '>').text("UV Index: " + moreData.value).appendTo(currentWeather);
+                    console.log(moreData);
+                    $('<h3 id = ' + userEnd + '>').text("UV Index: " + moreData.value).appendTo(currentWeather);
 
                     if (moreData.value <= 2) {
-                        $('#' + city).addClass('green');
+                        $('#' + userEnd).addClass('green');
                     }
                     else if (moreData.value <= 5) {
-                        $('#' + city).addClass('yellow');
+                        $('#' + userEnd).addClass('yellow');
                     }
                     else if (moreData.value <= 7) {
-                        $('#' + city).addClass('orange');
+                        $('#' + userEnd).addClass('orange');
                     }
                     else if (moreData.value <= 10) {
-                        $('#' + city).addClass('red');
+                        $('#' + userEnd).addClass('red');
                     }
                     else if (moreData.value > 10) {
-                        $('#' + city).addClass('purple');
+                        $('#' + userEnd).addClass('purple');
                     }
 
                 });
