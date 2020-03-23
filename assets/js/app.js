@@ -29,53 +29,53 @@ function getDirections() {
         url: queryURL,
         method: "GET",
     })
-    
-    .then(function(response){
-        console.log(response);
 
-        directions.empty();
+        .then(function (response) {
+            console.log(response);
 
-        $('<h3>').text("Distance: " + response.routes[0].legs[0].distance.text).appendTo(directions)
-        $('<h3>').text("Driving Duration: " + response.routes[0].legs[0].duration.text).appendTo(directions)
+            directions.empty();
 
-
-       
-
-        var tripDistance = parseInt(response.routes[0].legs[0].distance.text);
-        
-        console.log(tripDistance);  
-
-        if(tripDistance > 500){ 
-            $("<p>").html("Might want to book a flight!").appendTo(directions);
-        }
-
-// <a href="https://www.expedia.com/Flights>Checkout some flights on Expedia!</a>"
+            $('<h3>').text("Distance: " + response.routes[0].legs[0].distance.text).appendTo(directions)
+            $('<h3>').text("Driving Duration: " + response.routes[0].legs[0].duration.text).appendTo(directions)
 
 
-        else{
-            for(i = 0; i<response.routes[0].legs[0].steps.length; i++){
-            
-                // var newDirection = $("<p>");
-                var directionDistance = response.routes[0].legs[0].steps[i].distance.text;
-                var directionDuration = response.routes[0].legs[0].steps[i].duration.text;
-                var directionInstruction = response.routes[0].legs[0].steps[i].html_instructions;
-    
-                
-    
-                $("<p>").text(directionDistance).appendTo(directions);
-                $("<p>").text(directionDuration).appendTo(directions);
-                $("<p>").html(directionInstruction).appendTo(directions);
-    
-            
-                
-    
+
+            var distanceText = (response.routes[0].legs[0].distance.text).replace(/,/g, '');
+            var tripDistance = parseInt(distanceText);
+
+            console.log(tripDistance);
+
+            if (tripDistance > 500) {
+                $("<p>").html("Might want to book a flight!").appendTo(directions);
             }
-        }
+
+            // <a href="https://www.expedia.com/Flights>Checkout some flights on Expedia!</a>"
+
+
+            else {
+                for (i = 0; i < response.routes[0].legs[0].steps.length; i++) {
+
+                    // var newDirection = $("<p>");
+                    var directionDistance = response.routes[0].legs[0].steps[i].distance.text;
+                    var directionDuration = response.routes[0].legs[0].steps[i].duration.text;
+                    var directionInstruction = response.routes[0].legs[0].steps[i].html_instructions;
 
 
 
-        
-    });
+                    $("<p>").text(directionDistance).appendTo(directions);
+                    $("<p>").text(directionDuration).appendTo(directions);
+                    $("<p>").html(directionInstruction).appendTo(directions);
+
+
+
+
+                }
+            }
+
+
+
+
+        });
     getCurrentWeather();
 }
 
@@ -162,18 +162,18 @@ function getCurrentWeather() {
 
 
 
-$(document).ready(function(){
+$(document).ready(function () {
 
-submitBtn.on("click", function(event){
-    event.preventDefault();
-    getDirections();
-    $("#inputStart").val("");
-    $("#startState").val("");
-    $("#inputDestination").val("");
-    $("#endState").val("");
-  
-    
-});
+    submitBtn.on("click", function (event) {
+        event.preventDefault();
+        getDirections();
+        $("#inputStart").val("");
+        $("#startState").val("");
+        $("#inputDestination").val("");
+        $("#endState").val("");
+
+
+    });
 
 
 });
