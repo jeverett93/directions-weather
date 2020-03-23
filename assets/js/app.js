@@ -46,7 +46,22 @@ function getDirections() {
             console.log(tripDistance);
 
             if (tripDistance > 500) {
-                $("<p>").html("Might want to book a flight!").appendTo(directions);
+                // var flightOption = 
+                // var card = $('<div class ="card">');
+                // var cardBody = $('<div class="card-body">');
+                // // var yesBtn =
+                // // var noBtn = 
+                // $('<p class="card-text">').text("Do you want to book a flight").appendTo(cardBody);
+                // $('<button class="card-text">').attr("href", "https://www.expedia.com/Flights").text("Yes")
+                // $('<button class="card-text">').text("No, I'd rather drive").appendTo(cardBody);
+                // cardBody.appendTo(card);
+                // card.appendTo(directions);
+
+                // $("<p>").html("Might want to book a flight!").appendTo(directions);
+
+                var flightLink = $("<a>")
+                flightLink.attr("href", "https://www.expedia.com/Flights").text("Book a flight!");
+                flightLink.appendTo(directions);
             }
 
             // <a href="https://www.expedia.com/Flights>Checkout some flights on Expedia!</a>"
