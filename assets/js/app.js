@@ -29,53 +29,78 @@ function getDirections() {
         url: queryURL,
         method: "GET",
     })
-    
-    .then(function(response){
-        console.log(response);
 
-        directions.empty();
+        .then(function (response) {
+            console.log(response);
 
-        $('<h3>').text("Distance: " + response.routes[0].legs[0].distance.text).appendTo(directions)
-        $('<h3>').text("Driving Duration: " + response.routes[0].legs[0].duration.text).appendTo(directions)
+            directions.empty();
 
-
-       
-
-        var tripDistance = parseInt(response.routes[0].legs[0].distance.text);
-        
-        console.log(tripDistance);  
-
-        if(tripDistance > 500){ 
-            $("<p>").html("Might want to book a flight!").appendTo(directions);
-        }
-
-// <a href="https://www.expedia.com/Flights>Checkout some flights on Expedia!</a>"
+            $('<h3>').text("Distance: " + response.routes[0].legs[0].distance.text).appendTo(directions)
+            $('<h3>').text("Driving Duration: " + response.routes[0].legs[0].duration.text).appendTo(directions)
 
 
-        else{
-            for(i = 0; i<response.routes[0].legs[0].steps.length; i++){
-            
-                // var newDirection = $("<p>");
-                var directionDistance = response.routes[0].legs[0].steps[i].distance.text;
-                var directionDuration = response.routes[0].legs[0].steps[i].duration.text;
-                var directionInstruction = response.routes[0].legs[0].steps[i].html_instructions;
-    
-                
-    
-                $("<p>").text(directionDistance).appendTo(directions);
-                $("<p>").text(directionDuration).appendTo(directions);
-                $("<p>").html(directionInstruction).appendTo(directions);
-    
-            
-                
-    
+
+            var distanceText = (response.routes[0].legs[0].distance.text).replace(/,/g, '');
+            var tripDistance = parseInt(distanceText);
+
+            console.log(tripDistance);
+
+            if (tripDistance > 500) {
+                $("<h3>").text("Might want to book a flight!").appendTo(directions);
+                var card = $('<div class ="card">');
+                var cardBody = $('<div class="card-body">');
+                var flightLink = $("<a>");
+                var yesBtn = $("<button>").text("Book a flight!");
+                var noBtn = $("<button>").text("I'd rather drive!");
+                noBtn.on("click", function () {
+                    for (i = 0; i < response.routes[0].legs[0].steps.length; i++) {
+
+                        // var newDirection = $("<p>");
+                        var directionDistance = response.routes[0].legs[0].steps[i].distance.text;
+                        var directionDuration = response.routes[0].legs[0].steps[i].duration.text;
+                        var directionInstruction = response.routes[0].legs[0].steps[i].html_instructions;
+
+
+
+                        $("<p>").text(directionDistance).appendTo(directions);
+                        $("<p>").text(directionDuration).appendTo(directions);
+                        $("<p>").html(directionInstruction).appendTo(directions);
+                    }
+                })
+                flightLink.attr("href", "https://www.expedia.com/Flights");
+                yesBtn.appendTo(flightLink);
+                flightLink.appendTo(cardBody);
+                noBtn.appendTo(cardBody);
+                cardBody.appendTo(card);
+                card.appendTo(directions);
+               
             }
-        }
+
+
+            else {
+                for (i = 0; i < response.routes[0].legs[0].steps.length; i++) {
+
+                    // var newDirection = $("<p>");
+                    var directionDistance = response.routes[0].legs[0].steps[i].distance.text;
+                    var directionDuration = response.routes[0].legs[0].steps[i].duration.text;
+                    var directionInstruction = response.routes[0].legs[0].steps[i].html_instructions;
 
 
 
-        
-    });
+                    $("<p>").text(directionDistance).appendTo(directions);
+                    $("<p>").text(directionDuration).appendTo(directions);
+                    $("<p>").html(directionInstruction).appendTo(directions);
+
+
+
+
+                }
+            }
+
+
+
+
+        });
     getCurrentWeather();
 }
 
@@ -86,7 +111,7 @@ function getCurrentWeather() {
 
     var userEnd = $("#inputDestination").val().trim();
 
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + userEnd + "&appid=" + APIKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + userEnd + "," + endState + "&appid=" + APIKey;
 
     // var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=Nashville&appid=" + APIKey;
 
@@ -132,22 +157,23 @@ function getCurrentWeather() {
             })
                 // Getting UV index and color code for index
                 .then(function (moreData) {
-                    $('<h3 id = ' + city + '>').text("UV Index: " + moreData.value).appendTo(currentWeather);
+                    console.log(moreData);
+                    $('<h3 id = ' + userEnd + '>').text("UV Index: " + moreData.value).appendTo(currentWeather);
 
                     if (moreData.value <= 2) {
-                        $('#' + city).addClass('green');
+                        $('#' + userEnd).addClass('green');
                     }
                     else if (moreData.value <= 5) {
-                        $('#' + city).addClass('yellow');
+                        $('#' + userEnd).addClass('yellow');
                     }
                     else if (moreData.value <= 7) {
-                        $('#' + city).addClass('orange');
+                        $('#' + userEnd).addClass('orange');
                     }
                     else if (moreData.value <= 10) {
-                        $('#' + city).addClass('red');
+                        $('#' + userEnd).addClass('red');
                     }
                     else if (moreData.value > 10) {
-                        $('#' + city).addClass('purple');
+                        $('#' + userEnd).addClass('purple');
                     }
 
                 });
@@ -162,18 +188,18 @@ function getCurrentWeather() {
 
 
 
-$(document).ready(function(){
+$(document).ready(function () {
 
-submitBtn.on("click", function(event){
-    event.preventDefault();
-    getDirections();
-    $("#inputStart").val("");
-    $("#startState").val("");
-    $("#inputDestination").val("");
-    $("#endState").val("");
-  
-    
-});
+    submitBtn.on("click", function (event) {
+        event.preventDefault();
+        getDirections();
+        $("#inputStart").val("");
+        $("#startState").val("");
+        $("#inputDestination").val("");
+        $("#endState").val("");
+
+
+    });
 
 
 });
