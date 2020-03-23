@@ -46,25 +46,35 @@ function getDirections() {
             console.log(tripDistance);
 
             if (tripDistance > 500) {
-                // var flightOption = 
-                // var card = $('<div class ="card">');
-                // var cardBody = $('<div class="card-body">');
-                // // var yesBtn =
-                // // var noBtn = 
-                // $('<p class="card-text">').text("Do you want to book a flight").appendTo(cardBody);
-                // $('<button class="card-text">').attr("href", "https://www.expedia.com/Flights").text("Yes")
-                // $('<button class="card-text">').text("No, I'd rather drive").appendTo(cardBody);
-                // cardBody.appendTo(card);
-                // card.appendTo(directions);
+                $("<h3>").text("Might want to book a flight!").appendTo(directions);
+                var card = $('<div class ="card">');
+                var cardBody = $('<div class="card-body">');
+                var flightLink = $("<a>");
+                var yesBtn = $("<button>").text("Book a flight!");
+                var noBtn = $("<button>").text("I'd rather drive!");
+                noBtn.on("click", function () {
+                    for (i = 0; i < response.routes[0].legs[0].steps.length; i++) {
 
-                // $("<p>").html("Might want to book a flight!").appendTo(directions);
+                        // var newDirection = $("<p>");
+                        var directionDistance = response.routes[0].legs[0].steps[i].distance.text;
+                        var directionDuration = response.routes[0].legs[0].steps[i].duration.text;
+                        var directionInstruction = response.routes[0].legs[0].steps[i].html_instructions;
 
-                var flightLink = $("<a>")
-                flightLink.attr("href", "https://www.expedia.com/Flights").text("Book a flight!");
-                flightLink.appendTo(directions);
+
+
+                        $("<p>").text(directionDistance).appendTo(directions);
+                        $("<p>").text(directionDuration).appendTo(directions);
+                        $("<p>").html(directionInstruction).appendTo(directions);
+                    }
+                })
+                flightLink.attr("href", "https://www.expedia.com/Flights");
+                yesBtn.appendTo(flightLink);
+                flightLink.appendTo(cardBody);
+                noBtn.appendTo(cardBody);
+                cardBody.appendTo(card);
+                card.appendTo(directions);
+               
             }
-
-            // <a href="https://www.expedia.com/Flights>Checkout some flights on Expedia!</a>"
 
 
             else {
