@@ -111,7 +111,7 @@ function getCurrentWeather() {
 
     var userEnd = $("#inputDestination").val().trim();
 
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + userEnd + "&appid=" + APIKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + userEnd + "," + endState + "&appid=" + APIKey;
 
     // var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=Nashville&appid=" + APIKey;
 
