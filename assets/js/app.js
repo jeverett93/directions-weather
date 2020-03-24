@@ -1,3 +1,5 @@
+var startAddress;
+var endAddress;
 var userStart;
 var userEnd;
 var startState;
@@ -18,6 +20,11 @@ var APIKey = "e885fd3db621744dfef49f4c1e174dc6";
 
 function getDirections() {
 
+    // variables to grab input values from page
+    var startAddress = $("#startAddress").val().trim();
+    var startAddressSplice = startAddress.split(' ');
+    var endAddress = $("#destinationAddress").val().trim();
+    var endAddressSplice = endAddress.split(' ');
     var userStart = $("#inputStart").val().trim();
     var userEnd = $("#inputDestination").val().trim();
     var startState = $("#startState").val().trim();
@@ -102,6 +109,8 @@ function getDirections() {
 
         });
     getCurrentWeather();
+    console.log(startAddressSplice);
+    console.log(endAddressSplice);
 }
 
 // function to get the current weather
