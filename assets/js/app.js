@@ -34,7 +34,7 @@ function getDirections() {
     var startState = $("#startState").val().trim();
     var endState = $("#endState").val().trim();
 
-    var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/directions/json?origin=" + userStart + "," + startState + "&destination=" + userEnd + "," + endState + "&key=" + apiKey1
+    var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/directions/json?origin=" + startAddressFinal + "," + userStart + "," + startState + "&destination=" + endAddressFinal + "," + userEnd + "," + endState + "&key=" + apiKey1
 
     $.ajax({
         url: queryURL,
