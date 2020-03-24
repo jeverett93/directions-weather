@@ -23,8 +23,12 @@ function getDirections() {
     // variables to grab input values from page
     var startAddress = $("#startAddress").val().trim();
     var startAddressSplice = startAddress.split(' ');
+    var startAddressFinal = startAddressSplice.join("+");
+
     var endAddress = $("#destinationAddress").val().trim();
     var endAddressSplice = endAddress.split(' ');
+    var endAddressFinal = endAddressSplice.join("+");
+
     var userStart = $("#inputStart").val().trim();
     var userEnd = $("#inputDestination").val().trim();
     var startState = $("#startState").val().trim();
@@ -110,7 +114,9 @@ function getDirections() {
         });
     getCurrentWeather();
     console.log(startAddressSplice);
+    console.log(startAddressFinal);
     console.log(endAddressSplice);
+    console.log(endAddressFinal);
 }
 
 // function to get the current weather
