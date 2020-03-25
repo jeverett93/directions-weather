@@ -212,6 +212,8 @@ $(document).ready(function () {
         $("#startState").val("");
         $("#inputDestination").val("");
         $("#endState").val("");
+        $("#startAddress").val("")
+        $("#destinationAddress").val("")
 
 
     });

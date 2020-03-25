@@ -33,18 +33,32 @@ h5 {
     
 }
 
+.uk-input{
+    margin-left: 15px;
+    margin-bottom: 0px;
+}
+
+#placeholder{
+    display: none;
+}
+
+.uk-button{
+    background-color: #2589bd;
+    margin-left: 100px; 
+}
+
 #directions-info {
     box-sizing: border-box;
     clear: both;
     width: 20%;
     height: 100%;
     margin-bottom:20px;
-    border: 3px solid rgba(0, 174, 255, 0.431);
+    /* border: 3px solid rgba(0, 174, 255, 0.431); */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     float:25% right;
-    background-color: #6495ED;
+    /* background-color: #2589bd; */
     
 }
 
@@ -57,11 +71,11 @@ h5 {
     width: 20%;
     height: 100%;
     box-sizing: border-box;
-    border: 3px solid rgba(0, 174, 255, 0.431);
+    /* border: 3px solid rgba(0, 174, 255, 0.431); */
     flex-direction: row;
     flex-wrap: wrap;
     display: flex;
-    background-color: #2589bd;
+    /* background-color: #2589bd; */
     
       
 }
