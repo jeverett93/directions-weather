@@ -18,11 +18,17 @@
 
 <body>
 
-    <header>
+    <header class="hd1">
         <h1>Where ya going my person?</h1>
     </header>
+    <img src="img/car-travel.jpg" alt="car travel pic"/>
+ <!-- Where directions will go -->
+ 
+ <aside class="container">
+    <div id="directions-info">
+    </div>
 
-    <!-- Origin Inputs -->
+     <!-- Origin Inputs -->
     <form>
     
         <div class="uk-margin">
@@ -32,8 +38,10 @@
         <div class="uk-margin">
             <input id="startState" class="uk-input uk-form-width-medium" type="text" placeholder="Origin State">
         </div>
+        
 
     </form>
+    
 
     <!-- Destination Inputs and Submit Button -->
     <form>
@@ -45,34 +53,35 @@
         <div class="uk-margin">
             <input id="endState" class="uk-input uk-form-width-medium" type="text" placeholder="Destination State">
         </div>
-
-        <button type="submit" class="uk-button uk-button-default" id="submitBtn">Submit</button>
-
+        <div class="uk-margin">
+        <button type="submit" class="uk-button uk-button-default" class="hover" id="submitBtn">Submit</button>
+        
+        </div>
+        
     </form>
-
-    <!-- Where directions will go -->
-    <div id="directions-info">
-
-    </div>
-
-    <div id="icon">
-    </div>
+    <aside>
+        <div id="icon">
+        </div>
+    </aside>
     <!-- Where weather will go -->
     <div id="current-weather">
-
     </div>
+</div>
+ </aside>
 
+    <!-- Where directions will go -->
+    <!-- <div id="directions-info">
 
-
-
-
-
-
-
-
-
-
-
+    </div> -->
+    <!-- <aside>
+        <!-- Where weather will go -->
+        <!-- <div id="current-weather"></div>
+    </aside> -->
+     
+ 
+    <footer>
+        <h5>Drive safe!</h5>
+    </footer>
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.js"
@@ -81,7 +90,6 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgOE3QM2wQZZgOrdOyhBuX_GF-bgZGhU4&callback=initMap"async defer></script>
 
     <script src="assets/js/app.js"></script>
-
 </body>
 
 </html>
