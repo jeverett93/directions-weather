@@ -1,3 +1,5 @@
+var startAddress;
+var endAddress;
 var userStart;
 var userEnd;
 var startState;
@@ -18,12 +20,21 @@ var APIKey = "e885fd3db621744dfef49f4c1e174dc6";
 
 function getDirections() {
 
+    // variables to grab input values from page
+    var startAddress = $("#startAddress").val().trim();
+    var startAddressSplice = startAddress.split(' ');
+    var startAddressFinal = startAddressSplice.join("+");
+
+    var endAddress = $("#destinationAddress").val().trim();
+    var endAddressSplice = endAddress.split(' ');
+    var endAddressFinal = endAddressSplice.join("+");
+
     var userStart = $("#inputStart").val().trim();
     var userEnd = $("#inputDestination").val().trim();
     var startState = $("#startState").val().trim();
     var endState = $("#endState").val().trim();
 
-    var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/directions/json?origin=" + userStart + "," + startState + "&destination=" + userEnd + "," + endState + "&key=" + apiKey1
+    var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/directions/json?origin=" + startAddressFinal + "," + userStart + "," + startState + "&destination=" + endAddressFinal + "," + userEnd + "," + endState + "&key=" + apiKey1
 
     $.ajax({
         url: queryURL,
@@ -102,6 +113,10 @@ function getDirections() {
 
         });
     getCurrentWeather();
+    console.log(startAddressSplice);
+    console.log(startAddressFinal);
+    console.log(endAddressSplice);
+    console.log(endAddressFinal);
 }
 
 // function to get the current weather
