@@ -6,9 +6,8 @@ body{
     background-color: thistle;
     
 }
-h5 {
-    font-size: 3rem;
-}
+
+/* styling header */
 .hd1{
     padding: 2rem 1rem;
         margin-bottom: 2rem;
@@ -19,69 +18,67 @@ h5 {
         text-align: center;
         color: white;
 }
+
+/* Style for container of user inputs and weather */
+.wrapper{
+    display: block;
+    position: relative;
+}
+
+/* styling for divs holding forms that ask for user info */
+.input-div{
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+}
+
+/* aligning text within input divs */
 .uk-margin{
     text-align: center;
 }
 
-#submitBtn:hover{
-    color: teal;
-    background-color: #8B008B;
-}
-
-/* .card-background{
-    background-color: #2589bd;
-} */
-
+/* making the input boxes closer*/
 .uk-input{
-    margin-left: 15px;
     margin-bottom: 0px;
 }
 
-#placeholder{
-    display: none;
-}
-
+/* submit button color and aligning with input box */
 .uk-button{
     background-color: #2589bd;
     margin-left: 100px; 
 }
 
-#directions-info {
-    box-sizing: border-box;
-    clear: both;
-    width: 20%;
-    height: 100%;
-    margin-bottom:20px;
-    /* border: 3px solid rgba(0, 174, 255, 0.431); */
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    float:25% right;
-    /* background-color: #2589bd; */
-    
+/* hacky way of aligning input boxes with origin and destination info*/
+.hidden{
+    display: none;
+}
+.blank-div{
+    min-height: 40px;
 }
 
-
+/* styling for divs holding weather info*/
 #current-weather{
-    margin-right: 20px;
-    padding: 20px;
-    clear: both;
+    margin: 20px;
     float: left;
-    width: 20%;
-    height: 100%;
-    box-sizing: border-box;
-    /* border: 3px solid rgba(0, 174, 255, 0.431); */
-    flex-direction: row;
-    flex-wrap: wrap;
-    display: flex;
-    /* background-color: #2589bd; */
-    
-      
 }
-
+#current-weather h6{
+    margin: 2px;
+    padding: 0px;
+    font-size: 25px;
+    color: lavender;
+}
+#current-weather h5{
+    margin: 2px;
+    padding: 0px;
+    font-size: 25px;
+}
+.weather-div{
+    padding: 0px;
+}
 #icon{
     float: right;   
 }
+
 /* colors for UV index */
 .green {
     color: green;
@@ -98,3 +95,33 @@ h5 {
 .purple {
     color: purple;
 }
+
+/* styling for divs holding directions info */
+#directions-info {
+    box-sizing: border-box;
+    padding:20px 60px;
+    background-color: #2589bd;
+    color: lavender;
+    column-count: 3;
+    column-gap: 15px;
+    column-fill: balance
+}
+#directions-info li span{
+    margin: 5px;
+    padding: 0px;
+    display: block;
+    color: lavender;
+}
+#directions-info h3{
+    color: lavender;
+}
+#directions-info button{
+    margin: 5px;
+}
+
+/* footer */
+h5 {
+    font-size: 3rem;
+}
+
+/* add media queries to make mobile responsive - especially columns and elements not created with Ul kit. Double check those too though */
