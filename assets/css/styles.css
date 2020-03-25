@@ -22,16 +22,15 @@ h5 {
 .uk-margin{
     text-align: center;
 }
-.container{
-    display: flex;
-    float: 50% left;
-}
+
 #submitBtn:hover{
     color: teal;
     background-color: #8B008B;
-    
-    
 }
+
+/* .card-background{
+    background-color: #2589bd;
+} */
 
 .uk-input{
     margin-left: 15px;

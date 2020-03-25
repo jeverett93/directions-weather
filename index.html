@@ -45,88 +45,40 @@
     </div>
     <div class="uk-card uk-card-body">
         <h3 class="uk-card-title"></h3>
-        <!-- insert other form here -->
+        <form>
+            <div class="uk-margin">
+                <input class="uk-input uk-form-width-medium" id="destinationAddress" type="text"
+                    placeholder="Destination Address">
+            </div>
+
+            <div class="uk-margin">
+                <input class="uk-input uk-form-width-medium" id="inputDestination" type="text"
+                    placeholder="Destination City">
+            </div>
+
+            <div class="uk-margin">
+                <input id="endState" class="uk-input uk-form-width-medium" type="text" placeholder="Destination State">
+            </div>
+            <div class="uk-margin">
+                <button type="submit" class="uk-button uk-button-default hover" id="submitBtn">Submit</button>
+
+            </div>
+
+        </form>
     </div>
 
-    <div uk-grid class="container">
-        <!-- Origin Inputs -->
-        <div class="uk-grid-row-large" uk-grid>
-
-            <form class="uk-column-1-2">
-
-                <div class="uk-margin">
-                    <input class="uk-input uk-form-width-medium" id="startAddress" type="text"
-                        placeholder="Starting Address">
-                </div>
-
-                <div class="uk-margin">
-                    <input class="uk-input uk-form-width-medium" id="inputStart" type="text" placeholder="Origin City">
-                </div>
-
-                <div class="uk-margin">
-                    <input id="startState" class="uk-input uk-form-width-medium" type="text" placeholder="Origin State">
-                </div>
-
-            </form>
-
-
-            <!-- Destination Inputs and Submit Button -->
-            <form class="uk-column-1-2">
-
-                <div class="uk-margin">
-                    <input class="uk-input uk-form-width-medium" id="destinationAddress" type="text"
-                        placeholder="Destination Address">
-                </div>
-
-                <div class="uk-margin">
-                    <input class="uk-input uk-form-width-medium" id="inputDestination" type="text"
-                        placeholder="Destination City">
-                </div>
-
-                <div class="uk-margin">
-                    <input id="endState" class="uk-input uk-form-width-medium" type="text"
-                        placeholder="Destination State">
-                </div>
-                <div class="uk-margin">
-                    <button type="submit" class="uk-button uk-button-default hover" id="submitBtn">Submit</button>
-
-                </div>
-
-            </form>
-        </div>
-
-
-
-        <div class="uk-column-4-6">
-            <aside class=".uk-background-primary">
-                <div id="icon">
-                </div>
-            </aside>
+        <div class="uk-card uk-card-body uk-background-primary">
+    
+            <div id="icon"></div>
             <!-- Where weather will go -->
-            <div id="current-weather">
-            </div>
+            <div id="current-weather"></div>
         </div>
+
+    <div class="uk-card uk-card-body uk-background-primary"> 
+        <div id="directions-info"></div> 
     </div>
 
-    <div class="uk-grid-row-large" uk-grid>
-        <div class="uk-column-1-8">
-            <div class=".uk-background-primary" id="directions-info">
-            </div>
-        </div>
-    </div>
-
-    <!-- </div> -->
-
-
-    <!-- Where directions will go -->
-    <!-- <div id="directions-info">
-
-    </div> -->
-    <!-- <aside>
-        <!-- Where weather will go -->
-    <!-- <div id="current-weather"></div>
-    </aside> -->
-
+    
 
     <footer>
         <h5>Drive safe!</h5>
