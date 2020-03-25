@@ -7,7 +7,7 @@
 2. As a user I want to see the current weather in the place I am visiting.
 
 # Contributors: 
-https://rwilliamsiii.github.io/Portfolio/
+https://github.com/rwilliamsIII
 https://jeverett93.github.io/
 https://github.com/Loki-Malone
 
@@ -20,7 +20,14 @@ josheverett93@gmail.com
 https://www.linkedin.com/in/joshua-everett-087a4649/ 
 
 https://github.com/jeverett93
-https://github.com/jeverett93
+
+robert@a3marketing.com
+
+https://www.linkedin.com/in/robert-williams-76251a1a1/ 
+
+https://github.com/rwilliamsIII
+
+
 https://github.com/Loki-Malone
 
 # Usage: 
