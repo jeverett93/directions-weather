@@ -9,7 +9,7 @@
 # Contributors: 
 https://rwilliamsiii.github.io/Portfolio/
 https://jeverett93.github.io/
-https://github.com/Loki-Malone
+https://loki-malone.github.io/porfolio2.0/
 
 # Technology Stack: 
 HTML5, CSS, Javascript, jQuery, Moment.js, AJAX, UIKit, Google Maps Directions API, OpenWeathermap API
@@ -27,7 +27,6 @@ https://github.com/rwilliamsIII
 
 Loki:
 j.loki.malone@gmail.com
-
 https://github.com/Loki-Malone
 
 # Usage: 
