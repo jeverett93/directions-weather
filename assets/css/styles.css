@@ -129,3 +129,25 @@ h5 {
 }
 
 /* add media queries to make mobile responsive - especially columns and elements not created with Ul kit. Double check those too though */
+
+/* media queries for tablet */
+@media (max-width: 768px){
+    .weather-div{
+        margin-top: 25%;
+        padding: 20px
+    }
+    .directions-div{
+        margin-top: 50%;
+    }
+}
+
+
+/* not perfect yet */
+@media (max-width: 400px){
+    .weather-div{
+        margin-top: 300px;
+    }
+    .input-div{
+        padding: 1px;
+    }
+}
