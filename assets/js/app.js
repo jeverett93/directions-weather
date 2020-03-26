@@ -48,28 +48,60 @@ function getDirections() {
     })
 
         .then(function (response) {
-            directions.empty();
-            $(".directions-div").show();
+            // error message if there's invalid input or no response
+            if (response.status === "NOT_FOUND") {
+                $("#user-error").text("Please enter valid city and state!");
+            }
+            else {
+                directions.empty();
+                $(".directions-div").show();
+                $("#user-error").empty();
 
-            // printing distance and duration info to page
-            $('<h3>').text("Distance: " + response.routes[0].legs[0].distance.text).appendTo(directions)
-            $('<h3>').text("Driving Duration: " + response.routes[0].legs[0].duration.text).appendTo(directions)
+                // printing distance and duration info to page
+                $('<h3>').text("Distance: " + response.routes[0].legs[0].distance.text).appendTo(directions)
+                $('<h3>').text("Driving Duration: " + response.routes[0].legs[0].duration.text).appendTo(directions)
 
-            // taking commas out of distance so it can read as an integer
-            var distanceText = (response.routes[0].legs[0].distance.text).replace(/,/g, '');
-            var tripDistance = parseInt(distanceText);
+                // taking commas out of distance so it can read as an integer
+                var distanceText = (response.routes[0].legs[0].distance.text).replace(/,/g, '');
+                var tripDistance = parseInt(distanceText);
 
-            // renders flight option if distance is over 500 miles or driving instructions if they choose to drive
-            if (tripDistance > 500) {
-                var h3 = $("<h3>")
-                h3.text("Might want to book a flight!").appendTo(directions);
-                var card = $('<div class ="card">');
-                var cardBody = $('<div class="card-body">');
-                var flightLink = $("<a>");
-                var yesBtn = $("<button>").text("Book a flight!");
-                var noBtn = $("<button>").text("I'd rather drive!");
-                noBtn.on("click", function () {
+                // renders flight option if distance is over 500 miles or driving instructions if they choose to drive
+                if (tripDistance > 500) {
+                    var h3 = $("<h3>")
+                    h3.text("Might want to book a flight!").appendTo(directions);
+                    var card = $('<div class ="card">');
+                    var cardBody = $('<div class="card-body">');
+                    var flightLink = $("<a>");
+                    var yesBtn = $("<button>").text("Book a flight!");
+                    var noBtn = $("<button>").text("I'd rather drive!");
+                    noBtn.on("click", function () {
+                        for (i = 0; i < response.routes[0].legs[0].steps.length; i++) {
+                            var directionDistance = response.routes[0].legs[0].steps[i].distance.text;
+                            var directionDuration = response.routes[0].legs[0].steps[i].duration.text;
+                            var directionInstruction = response.routes[0].legs[0].steps[i].html_instructions;
+
+                            // printing direction instructions to page
+                            var $li = $("<li>");
+                            $("<span>").text(directionDistance).appendTo($li);
+                            $("<span>").text(directionDuration).appendTo($li);
+                            $("<span>").html(directionInstruction).appendTo($li);
+                            $li.appendTo(directions);
+                            flightLink.hide();
+                            noBtn.hide();
+                            h3.hide();
+                        }
+                    })
+                    flightLink.attr("href", "https://www.expedia.com/Flights");
+                    yesBtn.appendTo(flightLink);
+                    flightLink.appendTo(cardBody);
+                    noBtn.appendTo(cardBody);
+                    cardBody.appendTo(card);
+                    card.appendTo(directions);
+                }
+
+                else {
                     for (i = 0; i < response.routes[0].legs[0].steps.length; i++) {
+
                         var directionDistance = response.routes[0].legs[0].steps[i].distance.text;
                         var directionDuration = response.routes[0].legs[0].steps[i].duration.text;
                         var directionInstruction = response.routes[0].legs[0].steps[i].html_instructions;
@@ -80,39 +112,14 @@ function getDirections() {
                         $("<span>").text(directionDuration).appendTo($li);
                         $("<span>").html(directionInstruction).appendTo($li);
                         $li.appendTo(directions);
-                        flightLink.hide();
-                        noBtn.hide();
-                        h3.hide();
-                    }
-                })
-                flightLink.attr("href", "https://www.expedia.com/Flights");
-                yesBtn.appendTo(flightLink);
-                flightLink.appendTo(cardBody);
-                noBtn.appendTo(cardBody);
-                cardBody.appendTo(card);
-                card.appendTo(directions);
-            }
-
-            else {
-                for (i = 0; i < response.routes[0].legs[0].steps.length; i++) {
-
-                    var directionDistance = response.routes[0].legs[0].steps[i].distance.text;
-                    var directionDuration = response.routes[0].legs[0].steps[i].duration.text;
-                    var directionInstruction = response.routes[0].legs[0].steps[i].html_instructions;
-
-                    // printing direction instructions to page
-                    var $li = $("<li>");
-                    $("<span>").text(directionDistance).appendTo($li);
-                    $("<span>").text(directionDuration).appendTo($li);
-                    $("<span>").html(directionInstruction).appendTo($li);
-                    $li.appendTo(directions);
-                }
-            }
+                    };
+                };
+            };
         });
-
-        // runs weather function as soon as direction function runs
+    // runs weather function as soon as direction function runs
     getCurrentWeather();
-}
+
+};
 
 // function to get the current weather
 function getCurrentWeather() {

@@ -3,7 +3,7 @@
     padding:0;
 }
 body{
-    background-color: thistle;
+    background-color: #FFEA00;
     
 }
 
@@ -12,16 +12,19 @@ body{
         padding: 2rem 1rem;
         margin-bottom: 2rem;
         border-radius: 0.3rem;
-        background: #242134; 
-        background: -webkit-linear-gradient(to right, #9E9AB4,#544991);
-        background: linear-gradient(to right, rgb(87, 61, 235), #544991);
+        background: #1414FF; 
+        /* background: -webkit-linear-gradient(to right, #9E9AB4,#544991);
+        background: linear-gradient(to right, rgb(87, 61, 235), #544991); */
         text-align: center;
+
 }
 
 .header-title{
     font-family: 'Dancing Script', cursive;
     color: white;
 }
+
+
 
 /* Style for container of user inputs and weather */
 .wrapper{
@@ -48,8 +51,9 @@ body{
 
 /* submit button color and aligning with input box */
 .uk-button{
-    background-color: #2589bd;
-    margin-left: 100px; 
+    background-color: #1414FF;
+    margin-left: 100px;
+    color: white; 
 }
 
 /* hacky way of aligning input boxes with origin and destination info*/
@@ -60,16 +64,23 @@ body{
     min-height: 40px;
 }
 
+/* coloring error message */
+#user-error{
+    color: red;
+    font-weight: bold;
+}
+
 /* styling for divs holding weather info*/
 #current-weather{
     margin: 20px;
     float: left;
 }
+
 #current-weather h6{
     margin: 2px;
     padding: 0px;
     font-size: 25px;
-    color: lavender;
+    color: white;
 }
 #current-weather h5{
     margin: 2px;
@@ -78,6 +89,7 @@ body{
 }
 .weather-div{
     padding: 0px;
+    background-color: #1414FF;
 }
 #icon{
     float: right;   
@@ -104,8 +116,8 @@ body{
 #directions-info {
     box-sizing: border-box;
     padding:20px 60px;
-    background-color: #2589bd;
-    color: lavender;
+    background-color: #1414FF;
+    color: white;
     column-count: 3;
     column-gap: 15px;
     column-fill: balance
@@ -114,10 +126,10 @@ body{
     margin: 5px;
     padding: 0px;
     display: block;
-    color: lavender;
+    color: white;
 }
 #directions-info h3{
-    color: lavender;
+    color: white;
 }
 #directions-info button{
     margin: 5px;
@@ -126,6 +138,7 @@ body{
 /* footer */
 h5 {
     font-size: 3rem;
+    color: #1414FF;
 }
 
 /* add media queries to make mobile responsive - especially columns and elements not created with Ul kit. Double check those too though */
