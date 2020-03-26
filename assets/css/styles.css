@@ -9,19 +9,22 @@ body{
 
 /* styling header */
 .hd1{
-    padding: 2rem 1rem;
+        padding: 2rem 1rem;
         margin-bottom: 2rem;
         border-radius: 0.3rem;
         background: #1414FF; 
         /* background: -webkit-linear-gradient(to right, #9E9AB4,#544991);
         background: linear-gradient(to right, rgb(87, 61, 235), #544991); */
         text-align: center;
-        /* color: white; */
+
 }
 
-h1{
+.header-title{
+    font-family: 'Dancing Script', cursive;
     color: white;
 }
+
+
 
 /* Style for container of user inputs and weather */
 .wrapper{
@@ -139,3 +142,25 @@ h5 {
 }
 
 /* add media queries to make mobile responsive - especially columns and elements not created with Ul kit. Double check those too though */
+
+/* media queries for tablet */
+@media (max-width: 768px){
+    .weather-div{
+        margin-top: 25%;
+        padding: 20px
+    }
+    .directions-div{
+        margin-top: 50%;
+    }
+}
+
+
+/* not perfect yet */
+@media (max-width: 400px){
+    .weather-div{
+        margin-top: 300px;
+    }
+    .input-div{
+        padding: 1px;
+    }
+}
