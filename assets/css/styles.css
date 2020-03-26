@@ -136,9 +136,11 @@ body{
 }
 
 /* footer */
-h5 {
+.footer-tag {
+    font-family: 'Dancing Script', cursive;
     font-size: 3rem;
     color: #1414FF;
+    text-align: center;
 }
 
 /* add media queries to make mobile responsive - especially columns and elements not created with Ul kit. Double check those too though */

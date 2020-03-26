@@ -92,6 +92,7 @@ function getDirections() {
                         }
                     })
                     flightLink.attr("href", "https://www.expedia.com/Flights");
+                    flightLink.attr("target", "_blank");
                     yesBtn.appendTo(flightLink);
                     flightLink.appendTo(cardBody);
                     noBtn.appendTo(cardBody);
