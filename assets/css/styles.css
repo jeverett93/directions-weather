@@ -151,18 +151,31 @@ body{
         margin-top: 25%;
         padding: 20px
     }
-    .directions-div{
-        margin-top: 50%;
+    #directions-info{
+    column-count: 2;
+    column-gap: 15px;
+    column-fill: balance
     }
+}
+
+@media (max-width: 640px){
+    #directions-info{
+        column-count: 2;
+        column-gap: 15px;
+        column-fill: balance
+        }
+
 }
 
 
 /* not perfect yet */
-@media (max-width: 400px){
+@media (max-width: 320px){
     .weather-div{
         margin-top: 300px;
     }
-    .input-div{
-        padding: 1px;
-    }
+    #directions-info{
+        column-count: 1;
+        column-gap: 15px;
+        column-fill: balance;
+        }
 }
