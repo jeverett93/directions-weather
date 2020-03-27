@@ -1,6 +1,6 @@
 # WhereYouGoingMyPerson
 
-# Live Link: https://rwilliamsiii.github.io/directions-weather/
+# Live Link: https://jeverett93.github.io/directions-weather/
 
 # User Story 
 1. As a user, I want to know how long my trip will take, the distance to my destination, and the details of my route.   
