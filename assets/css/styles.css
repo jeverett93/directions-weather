@@ -143,14 +143,15 @@ body{
     text-align: center;
 }
 
-/* add media queries to make mobile responsive - especially columns and elements not created with Ul kit. Double check those too though */
-
-/* media queries for tablet */
+/* media queries for smaller screens*/
 @media (max-width: 768px){
-    .weather-div{
-        margin-top: 25%;
-        padding: 20px
-    }
+    .uk-position-right{
+        position: relative !important;
+        
+    } 
+    .uk-margin-medium-right{
+        margin-right: 0vw !important;
+    } 
     #directions-info{
     column-count: 2;
     column-gap: 15px;
@@ -159,6 +160,13 @@ body{
 }
 
 @media (max-width: 640px){
+    .uk-position-right{
+        position: relative !important;
+        
+    } 
+    .uk-margin-medium-right{
+        margin-right: 0vw !important;
+    }
     #directions-info{
         column-count: 2;
         column-gap: 15px;
@@ -168,11 +176,13 @@ body{
 }
 
 
-/* not perfect yet */
+/* smallest phone size */
 @media (max-width: 320px){
-    .weather-div{
-        margin-top: 300px;
-    }
+    .uk-position-right{
+        position: relative !important;
+        
+    } 
+    
     #directions-info{
         column-count: 1;
         column-gap: 15px;
